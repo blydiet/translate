@@ -27,10 +27,6 @@ speechRecognizer.onresult = async function(event) {
 function reset() {
   recognizing = false;
   let capationTimeOut = window.setTimeout(() => {
-    // window.setTimeout(() => {
-    //
-    //   console.log('hi')
-    // }, 070)
     incommingSpeech.innerHTML = '';
     final_span.parentNode.removeChild(final_span);
 
