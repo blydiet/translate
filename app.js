@@ -31,12 +31,11 @@ function reset() {
     //
     //   console.log('hi')
     // }, 070)
-    if (final_span !== null) {
-      incommingSpeech.innerHTML = '';
-      // final_span.parentNode.removeChild(final_span);
-    }
+    incommingSpeech.innerHTML = '';
+    final_span.parentNode.removeChild(final_span);
+
     //reset()
-  }, 15000);
+  }, 10000);
   console.log('hi');
   final_span.innerHTML = ' ';
   incommingSpeech.innerHTML = ' ';
@@ -49,10 +48,15 @@ function toggleStartStop() {
     reset();
   } else {
     speechRecognizer.start();
-    //getMedia()
     recognizing = true;
     button.innerHTML = 'Click to Stop';
     final_span.innerHTML = ' ';
     incomming_speech.innerHTML = ' ';
   }
+}
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: speechRecognizer.lang },
+    'google_translate_element'
+  );
 }
