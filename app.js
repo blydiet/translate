@@ -1,12 +1,14 @@
-document.getElementById('button').addEventListener('click');
-
-let finalTranscripts = '';
+let result = document.getElementById('result');
+let final_span = document.getElementById('final_span');
 let speechRecognizer = new webkitSpeechRecognition();
+let recognizing;
+let finalTranscripts = '';
+let incommingSpeech = document.getElementById('incomming_speech');
+let capationReset = false;
 
 speechRecognizer.continuous = true;
 speechRecognizer.interimResults = true;
-speechRecognizer.lang = 'en-US'; //"es-Es"
-// speechRecognizer.onend = reset;
+speechRecognizer.lang = 'en-US'; //"es-Es
 
 speechRecognizer.onresult = async function(event) {
   let inCommingSpeech = '';
@@ -21,3 +23,36 @@ speechRecognizer.onresult = async function(event) {
   final_span.innerHTML = finalTranscripts;
   incomming_speech.innerHTML = inCommingSpeech;
 };
+
+function reset() {
+  recognizing = false;
+  let capationTimeOut = window.setTimeout(() => {
+    // window.setTimeout(() => {
+    //
+    //   console.log('hi')
+    // }, 070)
+    if (final_span !== null) {
+      incommingSpeech.innerHTML = '';
+      // final_span.parentNode.removeChild(final_span);
+    }
+    //reset()
+  }, 15000);
+  console.log('hi');
+  final_span.innerHTML = ' ';
+  incommingSpeech.innerHTML = ' ';
+  button.innerHTML = 'click get capation';
+}
+
+function toggleStartStop() {
+  if (recognizing) {
+    speechRecognizer.stop();
+    reset();
+  } else {
+    speechRecognizer.start();
+    //getMedia()
+    recognizing = true;
+    button.innerHTML = 'Click to Stop';
+    final_span.innerHTML = ' ';
+    incomming_speech.innerHTML = ' ';
+  }
+}
