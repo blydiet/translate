@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "live-server public",
+    "test": "mocha",
     "deploy": "git subtree push --prefix public origin gh-pages"
   },
   "repository": {
@@ -17,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/blydiet/translate/issues"
   },
-  "homepage": "https://github.com/blydiet/translate#readme"
+  "homepage": "https://github.com/blydiet/translate#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  },
+  "dependencies": {}
 }
