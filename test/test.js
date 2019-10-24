@@ -14,4 +14,9 @@ describe('Testing speech string return', () => {
     let number = 9;
     assert.equal(typeof number === 'string', false);
   });
+  it('should return false when speech is not given', () => {
+    let number = {};
+    assert.equal(typeof number === 'string', false);
+  });
+  
 });
